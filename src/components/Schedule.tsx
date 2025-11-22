@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import { Calendar } from '@phosphor-icons/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { MapTimeline, TimelineEvent } from './MapTimeline';
 
-const Schedule = () => {
+const Schedule = memo(() => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation({ threshold: 0.2 });
   
   const day1Events: TimelineEvent[] = [
@@ -62,7 +63,7 @@ const Schedule = () => {
     },
     { 
       id: 'd1-mentalist',
-      time: '5:30 PM – 8:00 PM', 
+      time: '5:00 PM – 6:00 PM', 
       title: 'Talk: Mentalism Show', 
       description: 'Mind-bending mentalism performance',
       venue: 'Main Auditorium',
@@ -171,6 +172,8 @@ const Schedule = () => {
       </div>
     </section>
   );
-};
+});
+
+Schedule.displayName = 'Schedule';
 
 export default Schedule;

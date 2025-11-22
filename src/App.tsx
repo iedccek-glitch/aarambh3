@@ -1,15 +1,24 @@
+import { lazy, Suspense, useEffect } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import { RibbonDivider } from './components/RibbonDivider';
-import About from './components/About';
-import Events from './components/Events';
-import Schedule from './components/Schedule';
-import Guidelines from './components/Guidelines';
-import TravelGuide from './components/TravelGuide';
-import Contact from './components/Contact';
 import { APP_CONFIG } from './constants';
-import { useEffect } from 'react';
+
+// Lazy load below-the-fold components for better initial load performance
+const About = lazy(() => import('./components/About'));
+const Events = lazy(() => import('./components/Events'));
+const Schedule = lazy(() => import('./components/Schedule'));
+const Guidelines = lazy(() => import('./components/Guidelines'));
+const TravelGuide = lazy(() => import('./components/TravelGuide'));
+const Contact = lazy(() => import('./components/Contact'));
+
+// Simple loading component
+const LoadingFallback = () => (
+  <div className="py-24 flex items-center justify-center">
+    <div className="animate-pulse text-[var(--text-secondary)]">Loading...</div>
+  </div>
+);
 
 function App() {
   // Set dark theme on mount
@@ -28,12 +37,14 @@ function App() {
               <main>
                 <Hero />
                 <RibbonDivider />
-                <About />
-                <Events />
-                <Schedule />
-                <Guidelines />
-                <TravelGuide />
-                <Contact />
+                <Suspense fallback={<LoadingFallback />}>
+                  <About />
+                  <Events />
+                  <Schedule />
+                  <Guidelines />
+                  <TravelGuide />
+                  <Contact />
+                </Suspense>
               </main>
 
               <footer className='bg-gradient-to-b from-[var(--bg-primary)] to-[var(--bg-secondary)] py-20 border-t border-[var(--border-color)]'>

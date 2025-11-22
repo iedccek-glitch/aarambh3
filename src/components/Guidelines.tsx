@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { FileText, Users, Trophy, Clock, WarningCircle, CheckCircle } from '@phosphor-icons/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const Guidelines = () => {
+const Guidelines = memo(() => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation(0.2);
 
   const guidelines = [
@@ -97,6 +98,8 @@ const Guidelines = () => {
       </div>
     </section>
   );
-};
+});
+
+Guidelines.displayName = 'Guidelines';
 
 export default Guidelines;

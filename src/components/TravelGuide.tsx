@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Bus, Train, MapPin, Info, Clock, Warning, Sparkle, CaretRight } from '@phosphor-icons/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const TravelGuide = () => {
+const TravelGuide = memo(() => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation({ threshold: 0.2 });
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.2 });
   const [selectedMode, setSelectedMode] = useState<'bus' | 'train'>('bus');
@@ -482,6 +482,8 @@ const TravelGuide = () => {
       </div>
     </section>
   );
-};
+});
+
+TravelGuide.displayName = 'TravelGuide';
 
 export default TravelGuide;

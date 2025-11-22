@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import { Lightning, Users, Trophy, Rocket } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { transitions } from '../lib/motion';
 
-const About = () => {
+const About = memo(() => {
   const prefersReducedMotion = useReducedMotion();
 
   const features = [
@@ -108,6 +109,8 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
+
+About.displayName = 'About';
 
 export default About;

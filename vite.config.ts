@@ -5,8 +5,18 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Enable minification with esbuild (faster than terser)
-    minify: 'esbuild',
+    // Use terser for better compression in production
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.trace'],
+      },
+      mangle: {
+        safari10: true,
+      },
+    },
     // Target modern browsers for better optimization
     target: 'es2015',
     // Code splitting for better caching
@@ -18,25 +28,37 @@ export default defineConfig({
           'motion-vendor': ['framer-motion'],
           'icons-vendor': ['@phosphor-icons/react'],
         },
+        // Optimize chunk file names
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
     // Optimize chunk size
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 600,
     // Enable CSS code splitting
     cssCodeSplit: true,
     // Report compressed size for monitoring
     reportCompressedSize: true,
-    // Source maps for production debugging (can be disabled for smaller bundle)
+    // Disable source maps for smaller bundle
     sourcemap: false,
+    // Enable asset inlining for small files
+    assetsInlineLimit: 4096,
   },
   // Optimize dependencies
   optimizeDeps: {
     include: ['react', 'react-dom', 'framer-motion', '@phosphor-icons/react'],
+    exclude: [],
   },
   // Enable server compression hints
   server: {
     headers: {
       'Cache-Control': 'public, max-age=31536000',
     },
+  },
+  // Preview server config
+  preview: {
+    port: 4173,
+    strictPort: true,
   },
 });

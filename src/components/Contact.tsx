@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { MapPin, Phone, Envelope, Globe, InstagramLogo, LinkedinLogo, FacebookLogo } from '@phosphor-icons/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const Contact = () => {
+const Contact = memo(() => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation(0.2);
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation(0.2);
   
@@ -221,6 +222,8 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+});
+
+Contact.displayName = 'Contact';
 
 export default Contact;

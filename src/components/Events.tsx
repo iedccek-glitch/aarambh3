@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Users, Calendar } from '@phosphor-icons/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import {
@@ -12,7 +12,7 @@ import {
   Web3Illustration,
 } from '../assets/illustrations';
 
-const Events = () => {
+const Events = memo(() => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation(0.2);
   const [selectedType, setSelectedType] = useState('All');
 
@@ -23,7 +23,7 @@ const Events = () => {
       type: 'Hackathon',
       description: '24-hour coding marathon to solve real-world problems',
       illustration: HackathonIllustration,
-      date: 'January 4-5',
+      date: 'January 4',
       duration: '24 hours',
       fee: 1000,
     },
@@ -33,13 +33,13 @@ const Events = () => {
       type: 'Hackathon',
       description: 'Design marathon to create innovative and creative solutions',
       illustration: DesignIllustration,
-      date: 'January 4-5',
-      duration: '24 hours',
+      date: 'January 5',
+      duration: '6-7 hours',
       fee: 800,
     },
     {
       id: 3,
-      title: 'Renam - Robo War',
+      title: 'Ranam - Robo War',
       type: 'Competition',
       description: 'Battle of the bots - design and fight with your robots',
       illustration: RobotIllustration,
@@ -83,7 +83,7 @@ const Events = () => {
       type: 'Workshop',
       description: 'Hands-on session with cutting-edge hardware technologies (Details coming soon)',
       illustration: HardwareIllustration,
-      date: 'January 4',
+      date: 'January 5',
       duration: '3 hours',
       fee: 0,
     },
@@ -93,13 +93,23 @@ const Events = () => {
       type: 'Workshop',
       description: 'Explore blockchain, NFTs, and decentralized applications (Details coming soon)',
       illustration: Web3Illustration,
-      date: 'January 5',
+      date: 'January 4',
       duration: '3 hours',
+      fee: 0,
+    },
+    {
+      id: 9,
+      title: 'Entrepreneur Talk Session',
+      type: 'Talk Session',
+      description: 'Inspiring talk session with successful entrepreneurs sharing their journey and insights',
+      illustration: MentalistIllustration,
+      date: 'January 5',
+      duration: '1.5 hours',
       fee: 0,
     },
   ];
 
-  const eventTypes = ['All', 'Hackathon', 'Competition', 'Workshop', 'Entertainment', 'Exhibition'];
+  const eventTypes = ['All', 'Hackathon', 'Competition', 'Workshop', 'Entertainment', 'Exhibition', 'Talk Session'];
 
   const filteredEvents =
     selectedType === 'All' ? events : events.filter(event => event.type === selectedType);
@@ -117,7 +127,7 @@ const Events = () => {
             <span className='gradient-text'>Events</span>
           </h2>
           <p className='text-xl text-[var(--text-secondary)] max-w-3xl mx-auto'>
-            Explore our exciting lineup of workshops, hackathons, competitions, and talks
+            Explore our exciting lineup of workshops, hackathons, competitions, and talk sessions
           </p>
         </div>
 
@@ -206,6 +216,8 @@ const Events = () => {
       </div>
     </section>
   );
-};
+});
+
+Events.displayName = 'Events';
 
 export default Events;
