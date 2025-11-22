@@ -1,0 +1,366 @@
+/* Motion Design System */
+@import './styles/motion.css';
+@import './styles/map-timeline.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Performance: Smooth scrolling with CSS instead of JS */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer base {
+  /* Custom CSS Variables - Dark Mode Only */
+  :root {
+    /* Dark Mode Colors */
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #212121;
+    --bg-elevated: #2a2a2a;
+
+    --text-primary: #cccccc;
+    --text-heading: #fafafa;
+    --text-secondary: #999999;
+    --text-muted: #666666;
+
+    --accent-primary: #9fc866;
+    --accent-secondary: #7abe60;
+    --accent-tertiary: #bed85e;
+
+    --border-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+
+    /* Interactive */
+    --btn-bg: #87b943;
+    --btn-text: #000000;
+    --btn-hover: #9fc866;
+
+    --link-color: #9fc866;
+    --link-hover: #b7d68c;
+
+    /* Icon Colors */
+    --icon-color-primary: #cccccc;
+    --icon-color-secondary: #999999;
+    --icon-color-accent: #9fc866;
+    --icon-color-success: #7abe60;
+    --icon-color-warning: #fbbf24;
+    --icon-color-danger: #f87171;
+    --icon-color-muted: #666666;
+    --icon-color-white: #fafafa;
+
+    /* Illustration Colors - Lighter tints for dark backgrounds */
+    --ill-primary: #9fc866;
+    --ill-secondary: #b7d68c;
+    --ill-accent: #bed85e;
+    --ill-muted: #4ce288;
+  }
+
+  * {
+    @apply transition-colors duration-300;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+    color: var(--text-heading);
+  }
+}
+
+@layer components {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+  }
+
+  /* Focus states for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  /* Gradient text utility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-yellowGreen-300 via-appleGreen-300 to-asparagus-300 bg-clip-text text-transparent;
+  }
+
+  /* Card with hover effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-appleGreen-400 to-asparagus-400 
+           text-black 
+           px-8 py-3 rounded-full font-semibold
+           hover:shadow-lg hover:shadow-appleGreen-400/25
+           transform hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-appleGreen-300
+           text-appleGreen-300
+           px-8 py-3 rounded-full font-semibold
+           hover:bg-appleGreen-400 hover:text-black
+           transition-all duration-300;
+  }
+
+  /* Section fade-in animation */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Icon Styles */
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    background: transparent !important; /* Ensure no background */
+    box-shadow: none !important; /* Remove any shadow that might look like background */
+  }
+
+  .icon-animated {
+    transition: transform 0.2s ease-in-out;
+    background: transparent !important;
+  }
+
+  .icon-animated:hover {
+    transform: scale(1.1);
+  }
+
+  /* Ensure all Phosphor icons have transparent backgrounds */
+  [class*='ph-'],
+  svg[class*='ph-'],
+  .icon svg,
+  [data-phosphor] {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-pattern {
+    background-image:
+      radial-gradient(circle at 25px 25px, var(--accent-primary) 2%, transparent 0%),
+      radial-gradient(circle at 75px 75px, var(--accent-primary) 2%, transparent 0%);
+    background-size: 100px 100px;
+    opacity: 0.03;
+  }
+
+  .backdrop-blur-safari {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Icon Utility Classes */
+  .ph-primary {
+    color: var(--icon-color-primary);
+  }
+
+  .ph-secondary {
+    color: var(--icon-color-secondary);
+  }
+
+  .ph-accent {
+    color: var(--icon-color-accent);
+  }
+
+  .ph-success {
+    color: var(--icon-color-success);
+  }
+
+  .ph-muted {
+    color: var(--icon-color-muted);
+  }
+
+  /* ========================================
+     Ribbon Divider - Infinite Marquee
+     ======================================== */
+  
+  /* CSS Variables for easy customization */
+  :root {
+    --ribbon-height: 80px;
+    --ribbon-gap: 64px;
+    --ribbon-speed: 30s;
+    --ribbon-bg-light: #f4f4f5;
+    --ribbon-bg-dark: #1a1a1a;
+    --ribbon-spacing: 120px;
+  }
+
+  /* Main ribbon container with taped aesthetic */
+  .ribbon-divider {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: var(--ribbon-height);
+    overflow: hidden;
+    z-index: 10;
+    margin-top: 0;
+    margin-bottom: var(--ribbon-spacing);
+    /* Solid gradient background for proper visibility */
+    background: linear-gradient(135deg, 
+      var(--ribbon-bg-light) 0%, 
+      #e8e8e8 50%, 
+      var(--ribbon-bg-light) 100%);
+    /* Taped ribbon slant using clip-path */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%);
+    /* Subtle shadow for depth */
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    /* Ensure it's in document flow */
+    clear: both;
+    isolation: isolate;
+  }
+
+  .dark .ribbon-divider {
+    background: linear-gradient(135deg, 
+      var(--ribbon-bg-dark) 0%, 
+      #252525 50%, 
+      var(--ribbon-bg-dark) 100%);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Track container for dual rows */
+  .ribbon-track {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Animated row - uses only transform for performance */
+  .ribbon-row {
+    display: flex;
+    gap: var(--ribbon-gap);
+    padding-inline: var(--ribbon-gap);
+    flex-shrink: 0;
+    /* Infinite linear scroll */
+    animation: ribbonScroll var(--ribbon-speed) linear infinite;
+    will-change: transform;
+  }
+
+  /* Individual logo styling */
+  .ribbon-logo {
+    height: calc(var(--ribbon-height) - 24px);
+    width: auto;
+    display: block;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  .dark .ribbon-logo {
+    opacity: 0.65;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  .ribbon-logo:hover {
+    opacity: 1;
+  }
+
+  /* Keyframe animation - translateX only for GPU acceleration */
+  @keyframes ribbonScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Edge highlights for premium depth */
+  .ribbon-highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  .ribbon-highlight-top {
+    top: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(159, 211, 86, 0.2) 50%,
+      transparent 100%
+    );
+  }
+
+  .ribbon-highlight-bottom {
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(159, 211, 86, 0.15) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Accessibility - respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .ribbon-row {
+      animation: none !important;
+      will-change: auto;
+    }
+    
+    /* Show only first row when motion is disabled */
+    .ribbon-row:nth-child(2) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,302 @@
+/**
+ * Motion Design System CSS
+ * Apple HIG-inspired motion tokens and utilities
+ */
+
+:root {
+  /* Duration tokens */
+  --motion-duration-fast: 150ms;
+  --motion-duration-base: 250ms;
+  --motion-duration-calm: 350ms;
+  --motion-duration-long: 600ms;
+
+  /* Easing curves */
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Elevation shadows */
+  --elevation-z0: 0 0 0 0 rgba(0, 0, 0, 0);
+  --elevation-z1: 0 2px 4px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --elevation-z2: 0 4px 8px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --elevation-z3: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+
+  /* Blur values */
+  --motion-blur-sm: 2px;
+  --motion-blur-md: 4px;
+  --motion-blur-lg: 8px;
+}
+
+/* Utility classes for motion */
+
+/* Apply to elements that will animate */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation */
+.animated {
+  will-change: auto;
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.transition-colors {
+  transition: color var(--motion-duration-base) var(--motion-ease-out),
+              background-color var(--motion-duration-base) var(--motion-ease-out),
+              border-color var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.transition-transform {
+  transition: transform var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.transition-shadow {
+  transition: box-shadow var(--motion-duration-base) var(--motion-ease-out);
+}
+
+/* Elevation utilities */
+.elevation-z0 {
+  box-shadow: var(--elevation-z0);
+}
+
+.elevation-z1 {
+  box-shadow: var(--elevation-z1);
+}
+
+.elevation-z2 {
+  box-shadow: var(--elevation-z2);
+}
+
+.elevation-z3 {
+  box-shadow: var(--elevation-z3);
+}
+
+/* Hover elevation */
+.hover-elevate {
+  transition: box-shadow var(--motion-duration-base) var(--motion-ease-out),
+              transform var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.hover-elevate:hover {
+  box-shadow: var(--elevation-z2);
+  transform: translateY(-2px);
+}
+
+.hover-elevate-strong {
+  transition: box-shadow var(--motion-duration-base) var(--motion-ease-out),
+              transform var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.hover-elevate-strong:hover {
+  box-shadow: var(--elevation-z3);
+  transform: translateY(-4px);
+}
+
+/* Scale hover effects */
+.hover-scale {
+  transition: transform var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-scale-sm:hover {
+  transform: scale(1.01);
+}
+
+.hover-scale-lg:hover {
+  transform: scale(1.05);
+}
+
+/* Active press effect */
+.active-press:active {
+  transform: scale(0.98);
+  transition: transform var(--motion-duration-fast) var(--motion-ease-in-out);
+}
+
+/* Fade effects */
+.fade-enter {
+  opacity: 0;
+  animation: fade-in var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-exit {
+  animation: fade-out var(--motion-duration-fast) var(--motion-ease-in) forwards;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Slide up reveal (for GSAP) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--motion-duration-calm) var(--motion-ease-out),
+              transform var(--motion-duration-calm) var(--motion-ease-out);
+}
+
+/* Blur reveal */
+.reveal-blur {
+  opacity: 0;
+  filter: blur(var(--motion-blur-md));
+}
+
+.reveal-blur.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transition: opacity var(--motion-duration-base) var(--motion-ease-out),
+              filter var(--motion-duration-base) var(--motion-ease-out);
+}
+
+/* Scale reveal */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity var(--motion-duration-base) var(--motion-ease-out),
+              transform var(--motion-duration-base) var(--motion-ease-out);
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Remove transforms and opacity changes for reduced motion */
+  .reveal-up,
+  .reveal-blur,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .hover-elevate:hover,
+  .hover-elevate-strong:hover {
+    transform: none !important;
+  }
+
+  .hover-scale:hover,
+  .hover-scale-sm:hover,
+  .hover-scale-lg:hover {
+    transform: none !important;
+  }
+
+  .active-press:active {
+    transform: none !important;
+  }
+}
+
+/* Performance optimizations */
+
+/* Reduce GPU load by removing will-change after animation */
+@media (prefers-reduced-motion: no-preference) {
+  .will-animate {
+    will-change: transform, opacity;
+  }
+
+  /* Remove will-change after a delay */
+  .animated {
+    animation: remove-will-change 1ms var(--motion-duration-long) forwards;
+  }
+
+  @keyframes remove-will-change {
+    to {
+      will-change: auto;
+    }
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Backdrop blur utilities */
+.backdrop-blur-light {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-medium {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-heavy {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Glassmorphism effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth gradient transitions */
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-animate {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}

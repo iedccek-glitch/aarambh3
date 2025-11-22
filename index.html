@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#9FC866" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="description"
+      content="AARAMBH 3.0 - The flagship tech fest by IEDC at College of Engineering Karunagapally. Join us for workshops, hackathons, competitions, and networking opportunities."
+    />
+    <meta
+      name="keywords"
+      content="AARAMBH, tech fest, hackathon, CEK, IEDC, college event, technology, innovation"
+    />
+    <meta name="author" content="IEDC CEK" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AARAMBH 3.0 - Tech Fest 2026" />
+    <meta
+      property="og:description"
+      content="Join the most exciting tech fest at College of Engineering Karunagapally. January 4-5, 2026"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="AARAMBH 3.0 - Tech Fest 2026" />
+    <meta
+      property="twitter:description"
+      content="Join the most exciting tech fest at College of Engineering Karunagapally. January 4-5, 2026"
+    />
+
+    <title>AARAMBH 3.0 - Tech Fest 2026 | IEDC CEK</title>
+
+    <!-- Prevent Flash of Unstyled Content (FOUC) -->
+    <script>
+      // Apply saved theme or system preference before page renders
+      (function () {
+        const savedTheme = localStorage.getItem('aarambh-theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

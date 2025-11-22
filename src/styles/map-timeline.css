@@ -1,0 +1,191 @@
+/* Map Timeline Variables */
+:root {
+  --tl-path: #5ea543;
+  --tl-node: #87b943;
+  --tl-node-secondary: #adce36;
+  --tl-dash: 6 10;
+  --tl-node-ring: 3px;
+  --tl-draw: 1600ms;
+  --tl-label-bg: rgba(255, 255, 255, 0.95);
+  --tl-label-text: #1a1a1a;
+  --tl-label-border: rgba(94, 165, 67, 0.2);
+}
+
+.dark {
+  --tl-path: #9fc866;
+  --tl-node: #b7d68c;
+  --tl-node-secondary: #bed85e;
+  --tl-label-bg: rgba(26, 26, 26, 0.95);
+  --tl-label-text: #f5f5f5;
+  --tl-label-border: rgba(159, 200, 102, 0.3);
+}
+
+/* SVG Container */
+.map-timeline {
+  width: 100%;
+  height: auto;
+  color: var(--tl-path);
+  overflow: visible;
+}
+
+/* Route Path */
+#route {
+  will-change: stroke-dashoffset;
+  transition: stroke-dashoffset var(--tl-draw) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Event Nodes */
+.node {
+  opacity: 0;
+  transform: scale(0.5);
+  transform-origin: center;
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.node.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.node-pulse {
+  fill: var(--tl-node);
+  opacity: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.node.visible .node-pulse {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.15;
+    transform: scale(1.3);
+  }
+}
+
+.node-glow {
+  fill: var(--tl-node);
+  opacity: 0.2;
+  filter: blur(4px);
+}
+
+.node-ring {
+  fill: none;
+  stroke: var(--tl-node);
+  stroke-width: var(--tl-node-ring);
+}
+
+.node-core {
+  fill: var(--tl-node);
+}
+
+/* Event Cards */
+.event-card {
+  background: var(--tl-label-bg);
+  border: 1.5px solid var(--tl-label-border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.event-card:hover {
+  border-color: var(--tl-node);
+  box-shadow: 0 4px 16px rgba(94, 165, 67, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Clean Event Cards - No borders, no hover effects */
+.event-card-minimal {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0.75rem 0;
+}
+
+.event-card-minimal.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Section Fade In */
+.timeline-wrapper {
+  opacity: 0;
+  animation: fadeIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 100ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Route Draw Animation */
+@keyframes draw {
+  from {
+    stroke-dashoffset: var(--path-length);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  #route {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .node {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .timeline-wrapper {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  
+  .node-ring,
+  .node-core,
+  .event-label {
+    transition: none !important;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .event-label {
+    font-size: 0.875rem;
+  }
+  
+  .node-ring {
+    stroke-width: 2.5px;
+  }
+  
+  .node:hover .node-ring {
+    stroke-width: 3.5px;
+  }
+}
