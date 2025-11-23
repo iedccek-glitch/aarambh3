@@ -10,7 +10,7 @@ const Schedule = memo(() => {
     { 
       id: 'd1-checkin',
       time: '8:00 AM – 9:00 AM', 
-      title: 'Check-in', 
+      title: 'Checking In', 
       description: 'Registration and badge collection',
       venue: 'Main Entrance',
       t: 0.02,
@@ -26,66 +26,84 @@ const Schedule = memo(() => {
       labelSide: 'top'
     },
     { 
-      id: 'd1-talk',
-      time: '10:30 AM – 12:30 PM', 
-      title: 'Talk Sessions', 
-      description: 'Industry expert talks on emerging tech',
-      venue: 'Seminar Hall',
-      t: 0.20,
+      id: 'd1-hardware',
+      time: '9:30 AM – 11:30 AM', 
+      title: 'Hardware Workshop', 
+      description: 'Hands-on session with cutting-edge hardware technologies',
+      venue: 'Lab 1',
+      t: 0.15,
       labelSide: 'bottom'
     },
     { 
-      id: 'd1-workshop1',
-      time: '10:30 AM – 12:30 PM', 
-      title: 'Workshop: Hack Relate', 
-      description: 'Hands-on coding workshop',
-      venue: 'Lab 1',
-      t: 0.35,
+      id: 'd1-workshop-hackathon',
+      time: '11:00 AM – 1:00 PM', 
+      title: 'Workshop: For Hackathon', 
+      description: 'Preparation and guidance for hackathon participants',
+      venue: 'Seminar Hall',
+      t: 0.28,
       labelSide: 'top'
     },
     { 
-      id: 'd1-workshop2',
-      time: '2:00 PM – 5:30 PM', 
+      id: 'd1-entrepreneur-talk',
+      time: '11:30 AM – 1:00 PM', 
+      title: 'Entrepreneur Talk Session', 
+      description: 'Inspiring talk with successful entrepreneurs',
+      venue: 'Conference Room',
+      t: 0.40,
+      labelSide: 'bottom'
+    },
+    { 
+      id: 'd1-web3',
+      time: '2:00 PM – 4:00 PM', 
       title: 'Workshop: Web3', 
       description: 'Blockchain and decentralized tech',
       venue: 'Lab 2',
-      t: 0.65,
+      t: 0.58,
       labelSide: 'top'
     },
     { 
       id: 'd1-hackathon',
-      time: '2:00 PM', 
-      title: 'Hackathon Begins', 
-      description: '24-hour coding marathon starts',
+      time: '2:00 PM – Next Day 5:00 PM', 
+      title: 'Hackathon (24-Hour)', 
+      description: '24-hour coding marathon begins',
       venue: 'Tech Arena',
-      t: 0.80,
+      t: 0.72,
       labelSide: 'bottom'
     },
     { 
       id: 'd1-mentalist',
       time: '5:00 PM – 6:00 PM', 
-      title: 'Talk: Mentalism Show', 
+      title: 'Mentalist Show', 
       description: 'Mind-bending mentalism performance',
       venue: 'Main Auditorium',
-      t: 0.95,
+      t: 0.92,
       labelSide: 'top'
     },
   ];
 
   const day2Events: TimelineEvent[] = [
     { 
-      id: 'd2-designathon',
-      time: '9:30 AM – 2:30 PM', 
-      title: 'Designathon', 
-      description: 'UI/UX design competition',
+      id: 'd2-uiux',
+      time: '9:00 AM – 11:00 AM', 
+      title: 'Workshop: UI/UX', 
+      description: 'Learn design principles and user experience',
       venue: 'Design Studio',
       t: 0.05,
       labelSide: 'top'
     },
     { 
+      id: 'd2-designathon',
+      time: '9:30 AM – 2:30 PM', 
+      title: 'Designathon', 
+      description: 'UI/UX design competition',
+      venue: 'Design Studio',
+      t: 0.15,
+      labelSide: 'bottom'
+    },
+    { 
       id: 'd2-robo1',
       time: '10:30 AM – 12:30 PM', 
-      title: 'Robo War (Round 1)', 
+      title: 'Robo War', 
       description: 'Battle bots in action',
       venue: 'Arena',
       t: 0.32,
@@ -94,19 +112,10 @@ const Schedule = memo(() => {
     { 
       id: 'd2-robo2',
       time: '1:30 PM – 4:30 PM', 
-      title: 'Robo War (Finals)', 
-      description: 'Championship round',
+      title: 'Robo War (Continuation / Finals)', 
+      description: 'Championship round and finals',
       venue: 'Arena',
-      t: 0.60,
-      labelSide: 'top'
-    },
-    { 
-      id: 'd2-hackend',
-      time: '2:00 PM', 
-      title: 'Hackathon Ends', 
-      description: 'Project submissions and demos',
-      venue: 'Tech Arena',
-      t: 0.74,
+      t: 0.58,
       labelSide: 'bottom'
     },
     { 
@@ -115,7 +124,7 @@ const Schedule = memo(() => {
       title: 'Closing Ceremony', 
       description: 'Awards and prize distribution',
       venue: 'Main Auditorium',
-      t: 0.87,
+      t: 0.82,
       labelSide: 'top'
     },
     { 

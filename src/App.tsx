@@ -3,6 +3,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import { RibbonDivider } from './components/RibbonDivider';
+import Loader from './components/Loader';
 import { APP_CONFIG } from './constants';
 
 // Lazy load below-the-fold components for better initial load performance
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <ErrorBoundary>
+      <Loader />
       <div className='min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] relative'>
             {/* Hexagonal pattern background */}
             <div className='fixed inset-0 bg-pattern pointer-events-none z-0'></div>
