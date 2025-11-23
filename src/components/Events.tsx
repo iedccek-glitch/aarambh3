@@ -73,8 +73,8 @@ const Events = memo(() => {
       type: 'Exhibition',
       description: 'Showcase of innovative automobile designs and technology',
       illustration: AutoExpoIllustration,
-      date: 'January 4-5',
-      duration: '2 days',
+      date: 'January 5',
+      duration: '1 days',
       fee: 0,
     },
     {
