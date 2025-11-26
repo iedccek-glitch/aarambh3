@@ -235,7 +235,10 @@ const Hero = () => {
               <motion.button
                 id='register'
                 onClick={() => {
-                  alert('Registration coming soon!');
+                  const element = document.getElementById('events');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
                 }}
                 className='btn-primary active-press w-full max-w-xs py-4 text-lg font-bold'
                 whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
@@ -243,7 +246,7 @@ const Hero = () => {
                 transition={transitions.fast}
                 aria-label='Register for AARAMBH 3.0 event'
               >
-              Coming soon
+              Register Now
               </motion.button>
             </motion.div>
 
@@ -301,15 +304,17 @@ const Hero = () => {
               <motion.button
                 id='register'
                 onClick={() => {
-                  // Add registration logic here
-                  alert('Registration coming soon!');
+                  const element = document.getElementById('events');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
                 }}
                 className='btn-primary active-press w-full lg:w-auto'
                 whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
                 whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
                 transition={transitions.fast}
               >
-                Coming soon
+                Register Now
               </motion.button>
               <motion.button
                 onClick={() => {

@@ -129,14 +129,14 @@ const Header = () => {
             ))}
 
             <motion.button
-              onClick={() => scrollToSection('register')}
+              onClick={() => scrollToSection('events')}
               className='btn-primary'
               whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
               whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
               transition={transitions.fast}
               aria-label='Register for AARAMBH 3.0'
             >
-              Coming soon
+              Register Now
             </motion.button>
           </div>
 
@@ -192,7 +192,7 @@ const Header = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  scrollToSection('register');
+                  scrollToSection('events');
                 }}
                 className='w-full mt-4 btn-primary text-center'
                 initial={{ opacity: 0 }}
@@ -201,7 +201,7 @@ const Header = () => {
                 whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
                 aria-label='Register for AARAMBH 3.0'
               >
-                Coming soon
+                Register Now
               </motion.button>
             </motion.div>
           )}

@@ -167,10 +167,18 @@ const Events = memo(() => {
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className='relative overflow-hidden h-48 bg-gradient-to-br from-[var(--ill-primary)]/10 to-[var(--ill-secondary)]/5 flex items-center justify-center'>
-                  <IllustrationComponent 
-                    className='h-40 w-auto text-[var(--ill-primary)] transition-transform duration-500 group-hover:scale-110' 
-                    aria-hidden={true}
-                  />
+                  {event.id === 1 ? (
+                    <img 
+                      src="/assets/prayatna-ticket.png" 
+                      alt="Prayatna Hackathon Ticket"
+                      className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
+                    />
+                  ) : (
+                    <IllustrationComponent 
+                      className='h-40 w-auto text-[var(--ill-primary)] transition-transform duration-500 group-hover:scale-110' 
+                      aria-hidden={true}
+                    />
+                  )}
                   <div className='absolute top-4 left-4'>
                     <span className='bg-gradient-to-r from-appleGreen-400 to-asparagus-400 text-white dark:text-black px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg'>
                       {event.type}
@@ -209,7 +217,18 @@ const Events = memo(() => {
                   </div> */}
                 </div>
 
-                <button className='w-full btn-primary'>Coming soon</button>
+                {event.id === 1 ? (
+                  <a 
+                    href="https://konfhub.com/widget/aarambh26?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=66189&ticketId=66189%7C1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='w-full btn-primary inline-block text-center'
+                  >
+                    Register Now
+                  </a>
+                ) : (
+                  <button className='w-full btn-primary'>Coming soon</button>
+                )}
               </div>
             </div>
             );
