@@ -173,6 +173,12 @@ const Events = memo(() => {
                       alt="Prayatna Hackathon Ticket"
                       className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
                     />
+                  ) : event.id === 3 ? (
+                    <img 
+                      src="/assets/ranam-ticket.png" 
+                      alt="Ranam Robo War Ticket"
+                      className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
+                    />
                   ) : (
                     <IllustrationComponent 
                       className='h-40 w-auto text-[var(--ill-primary)] transition-transform duration-500 group-hover:scale-110' 
@@ -220,6 +226,15 @@ const Events = memo(() => {
                 {event.id === 1 ? (
                   <a 
                     href="https://konfhub.com/widget/aarambh26?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=66189&ticketId=66189%7C1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='w-full btn-primary inline-block text-center'
+                  >
+                    Register Now
+                  </a>
+                ) : event.id === 3 ? (
+                  <a 
+                    href="https://konfhub.com/widget/aarambh26?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=66191&ticketId=66191%7C1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className='w-full btn-primary inline-block text-center'
