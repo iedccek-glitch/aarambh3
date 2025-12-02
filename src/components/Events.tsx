@@ -173,6 +173,12 @@ const Events = memo(() => {
                       alt="Prayatna Hackathon Ticket"
                       className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
                     />
+                  ) : event.id === 2 ? (
+                    <img 
+                      src="/assets/kalpana-ticket.png" 
+                      alt="Kalpana Designathon Ticket"
+                      className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
+                    />
                   ) : event.id === 3 ? (
                     <img 
                       src="/assets/ranam-ticket.png" 
