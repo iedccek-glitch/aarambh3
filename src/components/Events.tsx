@@ -249,7 +249,7 @@ const Events = memo(() => {
                   </a>
                 ) : event.id === 3 ? (
                   <a 
-                    href="https://konfhub.com/widget/aarambh26?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=67304%2C67305&ticketId=67304%7C%3B67305%7C"
+                    href="https://konfhub.com/widget/aarambh26?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=67304%2C67305&ticketId=67304%7C%3B67305%7C"
                     target="_blank"
                     rel="noopener noreferrer"
                     className='w-full btn-primary inline-block text-center'
