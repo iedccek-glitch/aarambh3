@@ -48,6 +48,46 @@ const Events = memo(() => {
       fee: 600,
     },
     {
+      id: 11,
+      title: 'Daurapatham - Line Follower Challenge',
+      type: 'Competition',
+      description: 'Build and race autonomous line-following robots in this exciting challenge',
+      illustration: RobotIllustration,
+      date: 'January 5',
+      duration: '3 hours',
+      fee: 0,
+    },
+    {
+      id: 10,
+      title: 'UI/UX Workshop',
+      type: 'Workshop',
+      description: 'Learn design principles, user experience, and create stunning interfaces',
+      illustration: DesignIllustration,
+      date: 'January 5',
+      duration: '2 hours',
+      fee: 0,
+    },
+    {
+      id: 8,
+      title: 'Web3 Workshop',
+      type: 'Workshop',
+      description: 'Explore blockchain, NFTs, and decentralized applications (Details coming soon)',
+      illustration: Web3Illustration,
+      date: 'January 4',
+      duration: '3 hours',
+      fee: 0,
+    },
+    {
+      id: 7,
+      title: 'Hardware Workshop',
+      type: 'Workshop',
+      description: 'Hands-on session with cutting-edge hardware technologies (Details coming soon)',
+      illustration: HardwareIllustration,
+      date: 'January 5',
+      duration: '3 hours',
+      fee: 0,
+    },
+    {
       id: 4,
       title: 'Thillana - Music Show',
       type: 'Entertainment',
@@ -78,26 +118,6 @@ const Events = memo(() => {
       fee: 0,
     },
     {
-      id: 7,
-      title: 'Hardware Workshop',
-      type: 'Workshop',
-      description: 'Hands-on session with cutting-edge hardware technologies (Details coming soon)',
-      illustration: HardwareIllustration,
-      date: 'January 5',
-      duration: '3 hours',
-      fee: 0,
-    },
-    {
-      id: 8,
-      title: 'Web3 Workshop',
-      type: 'Workshop',
-      description: 'Explore blockchain, NFTs, and decentralized applications (Details coming soon)',
-      illustration: Web3Illustration,
-      date: 'January 4',
-      duration: '3 hours',
-      fee: 0,
-    },
-    {
       id: 9,
       title: 'Entrepreneur Talk Session',
       type: 'Talk Session',
@@ -105,16 +125,6 @@ const Events = memo(() => {
       illustration: MentalistIllustration,
       date: 'January 4',
       duration: '1.5 hours',
-      fee: 0,
-    },
-    {
-      id: 10,
-      title: 'UI/UX Workshop',
-      type: 'Workshop',
-      description: 'Learn design principles, user experience, and create stunning interfaces',
-      illustration: DesignIllustration,
-      date: 'January 5',
-      duration: '2 hours',
       fee: 0,
     },
   ];
@@ -142,7 +152,7 @@ const Events = memo(() => {
               
               <div className='p-6 lg:p-8 text-center bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-secondary)]'>
                 <h3 className='text-2xl lg:text-3xl font-bold text-[var(--text-heading)] mb-3 group-hover:text-appleGreen-400 dark:group-hover:text-appleGreen-300 transition-colors duration-300'>
-                  General Entry Pass
+                  Early Bird - General Entry Ticket
                 </h3>
                 <p className='text-[var(--text-secondary)] mb-6 text-base lg:text-lg leading-relaxed max-w-2xl mx-auto'>
                   Get access to all entertainment shows, exhibitions, and workshops at AARAMBH 3.0
@@ -219,6 +229,12 @@ const Events = memo(() => {
                       alt="Ranam Robo War Ticket"
                       className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
                     />
+                  ) : event.id === 11 ? (
+                    <img 
+                      src="/assets/daurapatham-ticket.png" 
+                      alt="Daurapatham Line Follower Challenge Ticket"
+                      className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
+                    />
                   ) : (
                     <IllustrationComponent 
                       className='h-40 w-auto text-[var(--ill-primary)] transition-transform duration-500 group-hover:scale-110' 
@@ -284,6 +300,42 @@ const Events = memo(() => {
                 ) : event.id === 3 ? (
                   <a 
                     href="https://konfhub.com/widget/aarambh26?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=67304%2C67305&ticketId=67304%7C%3B67305%7C"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='w-full btn-primary inline-block text-center'
+                  >
+                    Register Now
+                  </a>
+                ) : event.id === 7 ? (
+                  <a 
+                    href="https://bit.ly/4pH6DGL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='w-full btn-primary inline-block text-center'
+                  >
+                    Register Now
+                  </a>
+                ) : event.id === 8 ? (
+                  <a 
+                    href="https://forms.gle/et1zNm1d4g7FVrR29"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='w-full btn-primary inline-block text-center'
+                  >
+                    Register Now
+                  </a>
+                ) : event.id === 10 ? (
+                  <a 
+                    href="https://forms.gle/JXVzCxuNY78VpLgp7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='w-full btn-primary inline-block text-center'
+                  >
+                    Register Now
+                  </a>
+                ) : event.id === 11 ? (
+                  <a 
+                    href="https://konfhub.com/widget/aarambh26?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=68474%2C68475&ticketId=68474%7C%3B68475%7C"
                     target="_blank"
                     rel="noopener noreferrer"
                     className='w-full btn-primary inline-block text-center'
