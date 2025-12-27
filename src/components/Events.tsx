@@ -351,6 +351,15 @@ const Events = memo(() => {
                   >
                     Register Now
                   </a>
+                ) : event.id === 9 ? (
+                  <a 
+                    href="https://forms.gle/Gepm3z4jZx3A6jjR9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='w-full btn-primary inline-block text-center'
+                  >
+                    Register Now
+                  </a>
                 ) : (
                   <button className='w-full btn-primary'>Coming soon</button>
                 )}
