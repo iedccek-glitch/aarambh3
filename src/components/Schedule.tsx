@@ -9,8 +9,8 @@ const Schedule = memo(() => {
   const day1Events: TimelineEvent[] = [
     { 
       id: 'd1-checkin',
-      time: '8:00 AM – 9:00 AM', 
-      title: 'Checking In', 
+      time: '8:00 AM – 9:30 AM', 
+      title: 'Check-In', 
       description: 'Registration and badge collection',
       venue: 'Main Entrance',
       t: 0.02,
@@ -18,28 +18,28 @@ const Schedule = memo(() => {
     },
     { 
       id: 'd1-inauguration',
-      time: '9:00 AM – 10:00 AM', 
+      time: '9:00 AM – 11:00 AM', 
       title: 'Inauguration', 
       description: 'Opening ceremony and keynote address',
       venue: 'Main Auditorium',
-      t: 0.08,
+      t: 0.10,
       labelSide: 'top'
     },
     { 
-      id: 'd1-hardware',
-      time: '9:30 AM – 11:30 AM', 
-      title: 'Hardware Workshop', 
-      description: 'Hands-on session with cutting-edge hardware technologies',
-      venue: 'Lab 1',
-      t: 0.15,
-      labelSide: 'bottom'
-    },
-    { 
       id: 'd1-workshop-hackathon',
-      time: '11:00 AM – 1:00 PM', 
+      time: '11:00 AM – 12:30 PM', 
       title: 'Workshop: For Hackathon', 
       description: 'Preparation and guidance for hackathon participants',
       venue: 'Seminar Hall',
+      t: 0.22,
+      labelSide: 'bottom'
+    },
+    { 
+      id: 'd1-workshop-uiux',
+      time: '11:00 AM – 12:30 PM', 
+      title: 'Workshop: UI/UX', 
+      description: 'Design principles and user experience fundamentals',
+      venue: 'Design Studio',
       t: 0.28,
       labelSide: 'top'
     },
@@ -49,21 +49,21 @@ const Schedule = memo(() => {
       title: 'Entrepreneur Talk Session', 
       description: 'Inspiring talk with successful entrepreneurs',
       venue: 'Conference Room',
-      t: 0.40,
+      t: 0.38,
       labelSide: 'bottom'
     },
     { 
       id: 'd1-web3',
-      time: '2:00 PM – 4:00 PM', 
+      time: '2:00 PM – 5:00 PM', 
       title: 'Workshop: Web3', 
-      description: 'Blockchain and decentralized tech',
+      description: 'Blockchain and decentralized technologies',
       venue: 'Lab 2',
       t: 0.58,
       labelSide: 'top'
     },
     { 
       id: 'd1-hackathon',
-      time: '2:00 PM – Next Day 5:00 PM', 
+      time: '2:00 PM – Continue (24-Hour)', 
       title: 'Hackathon (24-Hour)', 
       description: '24-hour coding marathon begins',
       venue: 'Tech Arena',
@@ -83,57 +83,84 @@ const Schedule = memo(() => {
 
   const day2Events: TimelineEvent[] = [
     { 
-      id: 'd2-uiux',
+      id: 'd2-checkin',
+      time: '8:00 AM – 9:30 AM', 
+      title: 'Check-In', 
+      description: 'Registration and badge collection',
+      venue: 'Main Entrance',
+      t: 0.02,
+      labelSide: 'bottom'
+    },
+    { 
+      id: 'd2-hardware',
       time: '9:00 AM – 11:00 AM', 
-      title: 'Workshop: UI/UX', 
-      description: 'Learn design principles and user experience',
-      venue: 'Design Studio',
-      t: 0.05,
+      title: 'Hardware Workshop', 
+      description: 'Hands-on session with hardware technologies',
+      venue: 'Lab 1',
+      t: 0.10,
       labelSide: 'top'
     },
     { 
       id: 'd2-designathon',
-      time: '9:30 AM – 2:30 PM', 
+      time: '9:30 AM – 2:00 PM', 
       title: 'Designathon', 
-      description: 'UI/UX design competition',
+      description: 'UI/UX and web design competition',
       venue: 'Design Studio',
-      t: 0.15,
+      t: 0.18,
       labelSide: 'bottom'
     },
     { 
       id: 'd2-robo1',
       time: '10:30 AM – 12:30 PM', 
-      title: 'Robo War', 
+      title: 'Robo War (Phase 1)', 
       description: 'Battle bots in action',
       venue: 'Arena',
-      t: 0.32,
+      t: 0.28,
       labelSide: 'top'
+    },
+    { 
+      id: 'd2-line1',
+      time: '10:30 AM – 12:30 PM', 
+      title: 'Line Follower (Phase 1)', 
+      description: 'Autonomous robot line-following challenge',
+      venue: 'Arena',
+      t: 0.34,
+      labelSide: 'bottom'
     },
     { 
       id: 'd2-robo2',
       time: '1:30 PM – 4:30 PM', 
-      title: 'Robo War (Continuation / Finals)', 
+      title: 'Robo War (Finals)', 
       description: 'Championship round and finals',
+      venue: 'Arena',
+      t: 0.52,
+      labelSide: 'top'
+    },
+    { 
+      id: 'd2-line2',
+      time: '1:30 PM – 4:30 PM', 
+      title: 'Line Follower (Finals)', 
+      description: 'Final round and winner selection',
       venue: 'Arena',
       t: 0.58,
       labelSide: 'bottom'
     },
     { 
-      id: 'd2-closing',
-      time: '4:30 PM – 5:30 PM', 
-      title: 'Closing Ceremony', 
-      description: 'Awards and prize distribution',
-      venue: 'Main Auditorium',
-      t: 0.82,
+      id: 'd2-hackathon-end',
+      time: '2:00 PM – 5:00 PM', 
+      title: 'Hackathon Ends & Evaluation', 
+      description: 'Submission review and judging',
+      venue: 'Tech Arena',
+      t: 0.68,
       labelSide: 'top'
     },
     { 
-      id: 'd2-music',
-      time: '6:00 PM – 8:00 PM', 
-      title: 'Music Night', 
-      description: 'Live performances and celebration',
-      venue: 'Open Grounds',
-      t: 0.95,
+      id: 'd2-closing',
+      time: '5:30 PM – 6:30 PM', 
+      title: 'Closing Ceremony', 
+      description: 'Awards and prize distribution',
+      venue: 'Main Auditorium',
+      t: 0.88,
       labelSide: 'bottom'
     },
   ];

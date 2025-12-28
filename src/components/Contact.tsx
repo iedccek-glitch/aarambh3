@@ -203,10 +203,13 @@ const Contact = memo(() => {
           </p>
           <div className='flex flex-col lg:flex-row gap-4 justify-center items-center'>
             <button
-              onClick={() => alert('Registration coming soon!')}
+              onClick={() => {
+                const element = document.getElementById('events');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
               className='btn-primary text-lg px-10 py-4'
             >
-              Coming soon
+              Register now
             </button>
             <button
               onClick={() => {

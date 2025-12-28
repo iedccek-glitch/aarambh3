@@ -88,16 +88,6 @@ const Events = memo(() => {
       fee: 0,
     },
     {
-      id: 4,
-      title: 'Thillana - Music Show',
-      type: 'Entertainment',
-      description: 'Experience an amazing musical performance to celebrate innovation',
-      illustration: MusicIllustration,
-      date: 'January 5',
-      duration: '2 hours',
-      fee: 0,
-    },
-    {
       id: 5,
       title: 'Rahasya - Mentalism Show',
       type: 'Entertainment',
@@ -360,6 +350,21 @@ const Events = memo(() => {
                   >
                     Register Now
                   </a>
+                ) : event.id === 6 ? (
+                  <button 
+                    onClick={() => {
+                      const eventsSection = document.getElementById('events');
+                      if (eventsSection) {
+                        eventsSection.scrollIntoView({ behavior: 'smooth' });
+                        setTimeout(() => {
+                          alert('Please register for the General Entry Ticket to access the Auto Expo and other exhibitions!');
+                        }, 500);
+                      }
+                    }}
+                    className='w-full btn-primary'
+                  >
+                    Register Now
+                  </button>
                 ) : (
                   <button className='w-full btn-primary'>Coming soon</button>
                 )}
