@@ -142,7 +142,7 @@ function App() {
                     </div>
                   </div>
 
-                  <div className='border-t border-[var(--border-color)]/50 pt-8'>
+                  {/* Nodal Officers Section */}
                     <div className='flex flex-col lg:flex-row justify-between items-center gap-4 text-sm text-[var(--text-muted)]'>
                       <span>© 2026 {APP_CONFIG.name}. All rights reserved.</span>
                       <span className='text-xs opacity-70'>Crafted with precision by Tech Team</span>

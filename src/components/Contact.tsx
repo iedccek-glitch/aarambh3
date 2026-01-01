@@ -193,6 +193,42 @@ const Contact = memo(() => {
           </div>
         </div>
 
+        {/* Nodal Officers Section */}
+        <div className='mb-12'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto'>
+            <div className='group bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-6 hover:border-appleGreen-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-appleGreen-400/10'>
+              <div className='text-xs uppercase tracking-wider text-appleGreen-400 font-semibold mb-3'>
+                Nodal Officer
+              </div>
+              <h4 className='text-lg font-semibold text-[var(--text-heading)] mb-3'>
+                Renjith S R
+              </h4>
+              <a
+                href='tel:+919895421367'
+                className='flex items-center gap-2 text-[var(--text-secondary)] hover:text-appleGreen-400 transition-colors group'
+              >
+                <Phone size={18} weight="duotone" className='group-hover:animate-pulse' />
+                <span className='text-sm'>+91 98954 21367</span>
+              </a>
+            </div>
+            <div className='group bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-6 hover:border-appleGreen-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-appleGreen-400/10'>
+              <div className='text-xs uppercase tracking-wider text-appleGreen-400 font-semibold mb-3'>
+                Assistant Nodal Officer
+              </div>
+              <h4 className='text-lg font-semibold text-[var(--text-heading)] mb-3'>
+                Hridhya J
+              </h4>
+              <a
+                href='tel:+917907675129'
+                className='flex items-center gap-2 text-[var(--text-secondary)] hover:text-appleGreen-400 transition-colors group'
+              >
+                <Phone size={18} weight="duotone" className='group-hover:animate-pulse' />
+                <span className='text-sm'>+91 79076 75129</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className='bg-gradient-to-r from-appleGreen-400/10 to-asparagus-400/10 p-8 rounded-2xl border-2 border-appleGreen-400/20 dark:border-appleGreen-300/20 text-center shadow-xl'>
           <h3 className='text-3xl font-bold text-[var(--text-heading)] mb-4'>
             Ready to Join AARAMBH 3.0?
