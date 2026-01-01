@@ -142,7 +142,7 @@ const Events = memo(() => {
               
               <div className='p-6 lg:p-8 text-center bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-secondary)]'>
                 <h3 className='text-2xl lg:text-3xl font-bold text-[var(--text-heading)] mb-3 group-hover:text-appleGreen-400 dark:group-hover:text-appleGreen-300 transition-colors duration-300'>
-                  Early Bird - General Entry Ticket
+                  General Entry Ticket
                 </h3>
                 <p className='text-[var(--text-secondary)] mb-6 text-base lg:text-lg leading-relaxed max-w-2xl mx-auto'>
                   Get access to all entertainment shows, exhibitions, and workshops at AARAMBH 3.0

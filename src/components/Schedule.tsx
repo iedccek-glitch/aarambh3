@@ -79,6 +79,15 @@ const Schedule = memo(() => {
       t: 0.92,
       labelSide: 'top'
     },
+    { 
+      id: 'd1-dj-night',
+      time: '6:00 PM – 7:00 PM', 
+      title: 'DJ Night', 
+      description: 'Live music and entertainment',
+      venue: 'Main Stage',
+      t: 0.98,
+      labelSide: 'bottom'
+    },
   ];
 
   const day2Events: TimelineEvent[] = [
@@ -92,20 +101,20 @@ const Schedule = memo(() => {
       labelSide: 'bottom'
     },
     { 
-      id: 'd2-hardware',
-      time: '9:00 AM – 11:00 AM', 
-      title: 'Hardware Workshop', 
-      description: 'Hands-on session with hardware technologies',
-      venue: 'Lab 1',
-      t: 0.10,
-      labelSide: 'top'
-    },
-    { 
       id: 'd2-designathon',
       time: '9:30 AM – 2:00 PM', 
       title: 'Designathon', 
       description: 'UI/UX and web design competition',
       venue: 'Design Studio',
+      t: 0.10,
+      labelSide: 'top'
+    },
+    { 
+      id: 'd2-auto-expo',
+      time: '9:30 AM – 12:30 PM', 
+      title: 'Auto Expo', 
+      description: 'Showcase of innovative automobile designs',
+      venue: 'Exhibition Hall',
       t: 0.18,
       labelSide: 'bottom'
     },
@@ -128,13 +137,22 @@ const Schedule = memo(() => {
       labelSide: 'bottom'
     },
     { 
+      id: 'd2-hardware',
+      time: '1:30 PM – 3:30 PM', 
+      title: 'Hardware Workshop', 
+      description: 'Hands-on session with hardware technologies',
+      venue: 'Lab 1',
+      t: 0.44,
+      labelSide: 'top'
+    },
+    { 
       id: 'd2-robo2',
       time: '1:30 PM – 4:30 PM', 
       title: 'Robo War (Finals)', 
       description: 'Championship round and finals',
       venue: 'Arena',
       t: 0.52,
-      labelSide: 'top'
+      labelSide: 'bottom'
     },
     { 
       id: 'd2-line2',
