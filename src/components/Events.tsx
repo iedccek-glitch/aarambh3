@@ -1,6 +1,7 @@
 import { useState, memo } from 'react';
 import { Users, Calendar } from '@phosphor-icons/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SundayFunTicket from './SundayFunTicket';
 import {
   HackathonIllustration,
   DesignIllustration,
@@ -127,9 +128,10 @@ const Events = memo(() => {
   return (
     <section id='events' className='py-12 lg:py-24 bg-[var(--bg-primary)]'>
       <div className='container mx-auto px-4 lg:px-8'>
-        {/* General Entry Ticket */}
+        {/* Ticket Section - General Entry and Sunday Fun */}
         <div className='mb-16'>
-          <div className='max-w-2xl mx-auto'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto'>
+            {/* General Entry Ticket */}
             <div className='bg-[var(--bg-card)] rounded-2xl overflow-hidden border-2 border-[var(--border-color)] shadow-2xl hover:shadow-appleGreen-400/20 transition-all duration-500 group'>
               <div className='relative overflow-hidden bg-gradient-to-br from-appleGreen-400/5 via-asparagus-400/5 to-yellowGreen-400/5'>
                 <img 
@@ -158,6 +160,9 @@ const Events = memo(() => {
                 </a>
               </div>
             </div>
+
+            {/* Sunday Fun Ticket */}
+            <SundayFunTicket />
           </div>
         </div>
 
