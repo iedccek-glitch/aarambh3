@@ -64,7 +64,7 @@ const Events = memo(() => {
       type: 'Workshop',
       description: 'Learn design principles, user experience, and create stunning interfaces',
       illustration: DesignIllustration,
-      date: 'January 5',
+      date: 'January 4',
       duration: '2 hours',
       fee: 0,
     },
