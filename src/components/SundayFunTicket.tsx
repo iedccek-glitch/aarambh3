@@ -26,7 +26,7 @@ const SundayFunTicket = memo(() => {
             Sunday Fun Pass
           </h3>
           <p className='text-[var(--text-secondary)] mb-6 text-base lg:text-lg leading-relaxed max-w-2xl mx-auto'>
-            Special Sunday access to all entertainment events, exhibitions, and workshop sessions
+            Special Sunday access to all entertainment events including live music and mentalism show.
           </p>
           
           <a 
